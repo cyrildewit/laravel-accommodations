@@ -37,23 +37,33 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        $this->mapWebFrontRoutes();
 
         //
     }
 
     /**
-     * Define the "web" routes for the application.
+     * Define the frontsite routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
      * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapWebFrontRoutes()
     {
+        $namesapce = $this->namespace.'\Front';
+
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($namesapce)
+            ->group(function () {
+                try {
+                    require base_path('routes/web-front.php');
+                } catch  (Exception $exception) {
+                    logger()->warning("Front routes weren't included because {$exception->getMessage()}.");
+                }
+
+                Route::fallback('NotFoundController');
+            });
     }
 
     /**
