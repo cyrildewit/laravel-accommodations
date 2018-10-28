@@ -6,7 +6,7 @@
 
 ### Overview
 
-_Todo: find a great idea to work out_
+The goal is to build a simple booking system for local accommodations. The application will be medium-sized and it targets small municipalities.
 
 ### Technical
 
