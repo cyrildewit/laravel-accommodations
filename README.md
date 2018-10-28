@@ -16,9 +16,18 @@ The final application needs to consists of different environments. For instance 
 
 ### Environments
 
-* Management
-  * Controllers: `App\Http\Controllers\Management`
-  * Routes file: `routes/web-management.php`
 * Front
   * Controllers: `App\Http\Controllers\Front`
   * Routes file: `routes/web-front.php`
+  * URL: `domain.com`
+  * Accesible by: everyone
+* Accommodation Portal
+  * Controllers: `App\Http\Controllers\Front`
+  * Routes file: `routes/web-front.php`
+  * URL: `my.domain.com`
+  * Accesible by: users
+* Management
+  * Controllers: `App\Http\Controllers\Management`
+  * Routes file: `routes/web-management.php`
+  * URL: `manage.domain.nl`
+  * Accesible by: employees
