@@ -1,6 +1,6 @@
-# Laravel DDD experiment
+# Laravel Accommodations
 
-> **cyrildewit/laravel-ddd-experiment**
+> **cyrildewit/laravel-accommodations**
 
 ## Project Overall Requirements
 
