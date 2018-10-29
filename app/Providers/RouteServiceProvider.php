@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the frontsite routes for the application.
+     * Define the "front" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
@@ -60,6 +60,54 @@ class RouteServiceProvider extends ServiceProvider
                     require base_path('routes/web-front.php');
                 } catch  (Exception $exception) {
                     logger()->warning("Front routes weren't included because {$exception->getMessage()}.");
+                }
+
+                Route::fallback('NotFoundController');
+            });
+    }
+
+    /**
+     * Define the "my" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebMyRoutes()
+    {
+        $namesapce = $this->namespace.'\My';
+
+        Route::middleware('web')
+            ->namespace($namesapce)
+            ->group(function () {
+                try {
+                    require base_path('routes/web-my.php');
+                } catch  (Exception $exception) {
+                    logger()->warning("My routes weren't included because {$exception->getMessage()}.");
+                }
+
+                Route::fallback('NotFoundController');
+            });
+    }
+
+    /**
+     * Define the "manage" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebManageRoutes()
+    {
+        $namesapce = $this->namespace.'\Manage';
+
+        Route::middleware('web')
+            ->namespace($namesapce)
+            ->group(function () {
+                try {
+                    require base_path('routes/web-manage.php');
+                } catch  (Exception $exception) {
+                    logger()->warning("Manage routes weren't included because {$exception->getMessage()}.");
                 }
 
                 Route::fallback('NotFoundController');
