@@ -20,14 +20,14 @@ The final application needs to consists of different environments. For instance 
   * Controllers: `App\Http\Controllers\Front`
   * Routes file: `routes/web-front.php`
   * URL: `domain.com`
-  * Accesible by: everyone
-* Accommodation Portal
-  * Controllers: `App\Http\Controllers\Front`
-  * Routes file: `routes/web-front.php`
+  * Accessible by: everyone (guests)
+* Accommodations Portal
+  * Controllers: `App\Http\Controllers\My`
+  * Routes file: `routes/web-my.php`
   * URL: `my.domain.com`
-  * Accesible by: users
+  * Accessible by: users
 * Management
-  * Controllers: `App\Http\Controllers\Management`
-  * Routes file: `routes/web-management.php`
-  * URL: `manage.domain.nl`
-  * Accesible by: employees
+  * Controllers: `App\Http\Controllers\Manage`
+  * Routes file: `routes/web-manage.php`
+  * URL: `manage.domain.com`
+  * Accessible by: employees
