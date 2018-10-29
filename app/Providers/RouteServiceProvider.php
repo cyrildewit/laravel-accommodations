@@ -75,15 +75,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebMyRoutes()
     {
-        $namesapce = $this->namespace.'\My';
+        $namesapce = $this->namespace.'\Portal';
 
         Route::middleware('web')
             ->namespace($namesapce)
             ->group(function () {
                 try {
-                    require base_path('routes/web-my.php');
+                    require base_path('routes/web-portal.php');
                 } catch  (Exception $exception) {
-                    logger()->warning("My routes weren't included because {$exception->getMessage()}.");
+                    logger()->warning("Portal routes weren't included because {$exception->getMessage()}.");
                 }
 
                 Route::fallback('NotFoundController');
@@ -99,15 +99,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebManageRoutes()
     {
-        $namesapce = $this->namespace.'\Manage';
+        $namesapce = $this->namespace.'\Management';
 
         Route::middleware('web')
             ->namespace($namesapce)
             ->group(function () {
                 try {
-                    require base_path('routes/web-manage.php');
+                    require base_path('routes/web-management.php');
                 } catch  (Exception $exception) {
-                    logger()->warning("Manage routes weren't included because {$exception->getMessage()}.");
+                    logger()->warning("Management routes weren't included because {$exception->getMessage()}.");
                 }
 
                 Route::fallback('NotFoundController');

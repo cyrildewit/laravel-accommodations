@@ -22,12 +22,12 @@ The final application needs to consists of different environments. For instance 
   * URL: `domain.com`
   * Accessible by: everyone (guests)
 * Accommodations Portal
-  * Controllers: `App\Http\Controllers\My`
-  * Routes file: `routes/web-my.php`
+  * Controllers: `App\Http\Controllers\Portal`
+  * Routes file: `routes/web-portal.php`
   * URL: `my.domain.com`
   * Accessible by: users
 * Management
-  * Controllers: `App\Http\Controllers\Manage`
-  * Routes file: `routes/web-manage.php`
+  * Controllers: `App\Http\Controllers\Management`
+  * Routes file: `routes/web-management.php`
   * URL: `manage.domain.com`
   * Accessible by: employees
