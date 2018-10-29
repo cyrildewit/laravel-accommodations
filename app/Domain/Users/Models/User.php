@@ -15,13 +15,6 @@ class User extends Authenticatable
         SoftDeletes;
 
     /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table;
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
