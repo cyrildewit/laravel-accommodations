@@ -1,8 +1,8 @@
 # Laravel Accommodations
 
-> **cyrildewit/laravel-accommodations**
+> Open-source booking platform for accomodations
 
-## Project Overall Requirements
+## Specifications
 
 ### Overview
 
