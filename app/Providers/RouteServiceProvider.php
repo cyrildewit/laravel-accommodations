@@ -37,9 +37,11 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebFrontRoutes();
+        $this->mapWebManagementRoutes();
 
-        //
+        $this->mapWebPortalRoutes();
+
+        $this->mapWebFrontRoutes();
     }
 
     /**
@@ -51,10 +53,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebFrontRoutes()
     {
-        $namesapce = $this->namespace.'\Front';
+        $namespace = $this->namespace.'\Front';
 
         Route::middleware('web')
-            ->namespace($namesapce)
+            ->namespace($namespace)
+            ->name('front.')
             ->group(function () {
                 try {
                     require base_path('routes/web-front.php');
@@ -62,23 +65,25 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Front routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController');
+                Route::fallback('NotFoundController')->name('errors.404');
             });
     }
 
     /**
-     * Define the "my" routes for the application.
+     * Define the "portal" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
      * @return void
      */
-    protected function mapWebMyRoutes()
+    protected function mapWebPortalRoutes()
     {
-        $namesapce = $this->namespace.'\Portal';
+        $namespace = $this->namespace.'\Portal';
 
-        Route::middleware('web')
-            ->namespace($namesapce)
+        Route::domain('my.laravel-accommodations.test')
+            ->name('portal.')
+            ->middleware('web')
+            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-portal.php');
@@ -86,23 +91,25 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Portal routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController');
+                Route::fallback('NotFoundController')->name('errors.404');
             });
     }
 
     /**
-     * Define the "manage" routes for the application.
+     * Define the "management" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
      * @return void
      */
-    protected function mapWebManageRoutes()
+    protected function mapWebManagementRoutes()
     {
-        $namesapce = $this->namespace.'\Management';
+        $namespace = $this->namespace.'\Management';
 
-        Route::middleware('web')
-            ->namespace($namesapce)
+        Route::domain('manage.laravel-accommodations.test')
+            ->name('management.')
+            ->middleware('web')
+            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-management.php');
@@ -110,7 +117,7 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Management routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController');
+                Route::fallback('NotFoundController')->name('errors.404');
             });
     }
 
@@ -123,9 +130,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+        Route::domain('api.laravel-accommodations.test')
+            ->name('api.')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(function () {
+                try {
+                    require base_path('routes/api.php');
+                } catch  (Exception $exception) {
+                    logger()->warning("API routes weren't included because {$exception->getMessage()}.");
+                }
+            });
     }
 }
