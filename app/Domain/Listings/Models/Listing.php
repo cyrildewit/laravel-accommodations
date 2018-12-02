@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Listing extends Model
 {
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
+
     /**
      * Get attached address of model.
      *
