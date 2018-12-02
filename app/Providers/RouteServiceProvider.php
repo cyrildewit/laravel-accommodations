@@ -83,7 +83,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::domain('my.laravel-accommodations.test')
             ->name('portal.')
-            ->middleware('web', 'auth:portal', 'can:browse_portal')
+            ->middleware('web')
             ->namespace($namespace)
             ->group(function () {
                 try {
