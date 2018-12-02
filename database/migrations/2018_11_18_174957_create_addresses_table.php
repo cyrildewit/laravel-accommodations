@@ -24,21 +24,25 @@ class CreateAddressesTable extends Migration
 
             // Company information
             $table->string('company_name')->nullable();
+            // $table->string('note')->nullable();
 
             // Address information
-            $table->string('country'); // afkorting
+            $table->string('country'); // country code 'maybe country_id'
             $table->string('street');
-            $table->string('house_number');
-            $table->string('extra_address_line')->nullable(); // aka 'address line 2'
-            $table->string('postal_code');
-            $table->string('place');
-            $table->string('region')->nullable();
+            $table->string('street_number');
+            $table->string('address_line_2')->nullable();
+            $table->string('post_code');
+            // $table->string('place');
+            // $table->string('region')->nullable();
 
             $table->timestamps();
         });
 
         // possibilities:
         // - $table->string('alias'); // aka name
+        // - $table->float('lat', 10, 6)->nullable();
+        // - $table->float('lng', 10, 6)->nullable();
+
     }
 
     /**
