@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'portal',
         'passwords' => 'users',
     ],
 
@@ -36,7 +36,12 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'portal' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'management' => [
             'driver' => 'session',
             'provider' => 'users',
         ],

@@ -55,9 +55,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         $namespace = $this->namespace.'\Front';
 
-        Route::middleware('web')
-            ->namespace($namespace)
+        Route::domain('laravel-accommodations.test')
             ->name('front.')
+            ->middleware('web')
+            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-front.php');
@@ -82,7 +83,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::domain('my.laravel-accommodations.test')
             ->name('portal.')
-            ->middleware('web')
+            ->middleware('web', 'auth:portal', 'can:browse_portal')
             ->namespace($namespace)
             ->group(function () {
                 try {
