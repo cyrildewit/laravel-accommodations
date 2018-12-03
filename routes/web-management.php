@@ -3,7 +3,7 @@
 Route::middleware('auth:management', 'can:browse_management')->group(function () {
 
     // Dashboard
-    Route::get('dashboard')->name('dashboard');
+    Route::get('/', function () {return 'dashboard';})->name('dashboard');
 
 });
 

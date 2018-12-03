@@ -3,7 +3,7 @@
 Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
 
     // Dashboard
-    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/', 'DashboardController@index')->name('dashboard');
 
 });
 
