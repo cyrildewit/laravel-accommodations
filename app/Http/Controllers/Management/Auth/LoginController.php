@@ -21,6 +21,16 @@ class LoginController extends Controller
     }
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('management.auth.login');
+    }
+
+    /**
      * Where to redirect users after login.
      *
      * @return string
