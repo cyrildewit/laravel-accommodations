@@ -2,10 +2,33 @@
 
 namespace App\Http\Middleware;
 
+use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
 {
+    /**
+     * @var array
+     */
+    protected $guards;
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string[]  ...$guards
+     * @return mixed
+     *
+     * @throws \Illuminate\Auth\AuthenticationException
+     */
+    public function handle($request, Closure $next, ...$guards)
+    {
+        $this->guards = $guards;
+
+        return parent::handle($request, $next, ...$guards);
+    }
+
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
@@ -15,31 +38,19 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('management.auth.login');
+            $guard = array_first($this->guards);
+
+            switch ($guard) {
+                case 'management':
+                    $login = 'management.auth.login';
+                    break;
+
+                case 'portal':
+                default:
+                    $login = 'portal.auth.login';
+            }
+
+            return route($login);
         }
     }
-    // {
-    //     if (! $request->expectsJson()) {
-    //         dd();
-    //         return route('management.auth.login');
-
-    //     //     $guard = \Auth::guard();
-
-
-    //     //     dd($guard->name);
-
-    //     // switch ($guard) {
-    //     //             case 'management':
-    //     //                 $home = 'management.dashboard';
-    //     //                 break;
-
-    //     //             case 'portal':
-    //     //             default:
-    //     //                 $home = 'portal.dashboard';
-    //     //         }
-
-    //     // return redirect()->route($home);
-
-    //     }
-    // }
 }
