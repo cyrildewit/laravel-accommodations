@@ -18,12 +18,16 @@ class RolesAndPermissionsTableSeeder extends Seeder
         // Reset cached roles and permissions
         app('cache')->forget('spatie.permission.cache');
 
-        // Create permissions
-        Permission::create(['name' => 'browse_management']);
-        Permission::create(['name' => 'browse_portal']);
+        // Create permissions for portal
+        Permission::create(['name' => 'browse_portal', 'guard_name'=> 'portal']);
 
-        // Create roles and assign created permissions
+        // Create permissions for management
+        Permission::create(['name' => 'browse_management', 'guard_name'=> 'management']);
+
+        // Create super admin role
         $role = Role::create(['name' => 'super-admin']);
+
+        // Create member role and assign permissions
         $role = Role::create(['name' => 'member']);
         $role->givePermissionTo([
             'browse_portal',
