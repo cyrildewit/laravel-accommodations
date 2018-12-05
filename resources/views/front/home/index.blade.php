@@ -3,11 +3,11 @@
 ])
 <h1>Homepage</h1>
 
-@role('super-admin')
+@if(Auth::guard('management')->user()->hasRole('super-admin'))
 <h2>I am a super admin</h2>
 @else
 <h2>I am NOT a super admin</h2>
-@endrole
+@endif
 
 @can('add_listings')
 <h2>I can add listings</h2>
