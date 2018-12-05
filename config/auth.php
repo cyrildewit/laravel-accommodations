@@ -43,7 +43,7 @@ return [
 
         'management' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'managers',
         ],
 
         'api' => [
@@ -73,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Domain\Users\Models\User::class,
+        ],
+
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Domain\Managers\Models\Manager::class,
         ],
 
         // 'users' => [
