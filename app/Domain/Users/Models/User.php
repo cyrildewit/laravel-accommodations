@@ -3,6 +3,7 @@
 namespace App\Domain\Users\Models;
 
 use Spatie\Permission\Traits\HasRoles;
+use App\Domain\Listings\Models\Listing;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -33,4 +34,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the listings of the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function listings()
+    {
+        return $this->hasMany(Listing::class, 'owner_id');
+    }
 }
