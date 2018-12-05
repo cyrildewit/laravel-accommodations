@@ -16,12 +16,12 @@ mix
     .js('resources/js/front/app.js', 'public/js/front.app.js')
     .sass('resources/sass/front/front.scss', 'public/css/front.css')
 
-    // // Portal resources
-    // .js('resources/js/portal/app.js', 'public/js/portal.app.js')
-    // .sass('resources/sass/portal/portal.scss', 'public/css/portal.css')
+    // Portal resources
+    .js('resources/js/portal/app.js', 'public/js/portal.app.js')
+    .sass('resources/sass/portal/portal.scss', 'public/css/portal.css')
 
-    // // Management resources
-    // .js('resources/js/management/app.js', 'public/js/management.app.js')
-    // .sass('resources/sass/management/management.scss', 'public/css/management.css')
+    // Management resources
+    .js('resources/js/management/app.js', 'public/js/management.app.js')
+    .sass('resources/sass/management/management.scss', 'public/css/management.css')
 
     .version();
