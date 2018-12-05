@@ -32,7 +32,17 @@ class Listing extends Model
     ];
 
     /**
-     * Get the rooms for the listing.
+     * Get the owner of this listing.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the rooms of this listing.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
