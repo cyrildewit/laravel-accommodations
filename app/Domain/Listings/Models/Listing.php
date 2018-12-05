@@ -2,6 +2,7 @@
 
 namespace App\Domain\Listings\Models;
 
+use App\Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\Addresses\Models\Address;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
