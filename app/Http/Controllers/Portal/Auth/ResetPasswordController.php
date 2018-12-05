@@ -20,6 +20,22 @@ class ResetPasswordController extends Controller
     }
 
     /**
+     * Display the password reset view for the given token.
+     *
+     * If no token is present, display the link request form.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string|null  $token
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('portal.auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+
+    /**
      * Where to redirect users after registration.
      *
      * @return string
@@ -27,5 +43,15 @@ class ResetPasswordController extends Controller
     protected function redirectTo()
     {
         return route('portal.dashboard');
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('portal');
     }
 }
