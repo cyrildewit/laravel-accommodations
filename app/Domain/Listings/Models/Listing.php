@@ -8,13 +8,41 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Listing extends Model
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'listings';
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * The attributes that should be casted.
+     *
+     * @var array
+     */
+    protected $casts = [
+        // 'meta' => 'array',
+    ];
+
+    /**
+     * Get the rooms for the listing.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function rooms()
     {
         return $this->hasMany(Room::class);
     }
 
     /**
-     * Get attached address of model.
+     * Get the attached address of the listing.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */

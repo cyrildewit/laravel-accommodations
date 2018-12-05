@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use App\Domain\Listings\Models\Listing;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesAndPermissionsTableSeeder extends Seeder
 {
@@ -16,7 +18,7 @@ class RolesAndPermissionsTableSeeder extends Seeder
     public function run()
     {
         // Reset cached roles and permissions
-        app('cache')->forget('spatie.permission.cache');
+        app(PermissionRegistrar::class)->forgetCachedPermissions();
 
         /*
         |--------------------------------------------------------------------------
@@ -25,10 +27,14 @@ class RolesAndPermissionsTableSeeder extends Seeder
         */
 
         // Create permissions for portal
-        Permission::create(['name' => 'browse_portal', 'guard_name'=> 'portal']);
+        Permission::create(['name' => 'browse_portal', 'guard_name' => 'portal']);
 
         // Create permissions for management
-        Permission::create(['name' => 'browse_management', 'guard_name'=> 'management']);
+        Permission::create(['name' => 'browse_management', 'guard_name' => 'management']);
+
+        // Create permissions for Listing model
+        $this->generatePermissionsFor(Listing::class, 'portal');
+        $this->generatePermissionsFor(Listing::class, 'management');
 
         /*
         |--------------------------------------------------------------------------
@@ -43,6 +49,7 @@ class RolesAndPermissionsTableSeeder extends Seeder
         $role = Role::create(['name' => 'member']);
         $role->givePermissionTo([
             'browse_portal',
+            'add_listings'
         ]);
     }
 
@@ -51,12 +58,15 @@ class RolesAndPermissionsTableSeeder extends Seeder
      *
      * @return void
      */
-    private function generatePermissionsFor($tableName)
+    private function generatePermissionsFor($model, $guardName = null)
     {
-        Permission::create(['name' => 'browse_'.$tableName]);
-        Permission::create(['name' => 'read_'.$tableName]);
-        Permission::create(['name' => 'edit_'.$tableName]);
-        Permission::create(['name' => 'add_'.$tableName]);
-        Permission::create(['name' => 'delete_'.$tableName]);
+        $model = app($model);
+        $tableName = $model->getConnection()->getTablePrefix().$model->getTable();
+
+        Permission::create(['name' => 'browse_'.$tableName, 'guard_name' => $guardName]);
+        Permission::create(['name' => 'read_'.$tableName, 'guard_name' => $guardName]);
+        Permission::create(['name' => 'edit_'.$tableName, 'guard_name' => $guardName]);
+        Permission::create(['name' => 'add_'.$tableName, 'guard_name' => $guardName]);
+        Permission::create(['name' => 'delete_'.$tableName, 'guard_name' => $guardName]);
     }
 }
