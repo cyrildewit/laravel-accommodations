@@ -29,6 +29,11 @@ class Room extends Model implements Sortable
         'sort_when_creating' => true,
     ];
 
+    /**
+     * Get the listing for this room.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function listing()
     {
         return $this->belongsTo(Listing::class);
