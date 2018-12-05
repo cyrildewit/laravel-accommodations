@@ -20,6 +20,8 @@ class CreateRoomsTable extends Migration
             $table->string('name');
             $table->text('description');
 
+            $table->integer('order_column');
+
             $table->timestamps();
         });
     }
