@@ -16,6 +16,7 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id'); // maybe uuid
+            $table->integer('owner_id')->unsigned();
 
             $table->string('name');
             $table->text('description');
