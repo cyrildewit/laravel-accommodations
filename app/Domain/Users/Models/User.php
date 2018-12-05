@@ -14,6 +14,8 @@ class User extends Authenticatable
         Notifiable,
         SoftDeletes;
 
+    protected $guard_name = 'portal';
+
     /**
      * The attributes that are mass assignable.
      *
