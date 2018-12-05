@@ -15,16 +15,20 @@ class ListingsTableSeeder extends Seeder
      */
     public function run()
     {
-        Listing::create([
+        $listing = Listing::create([
             'name' => 'B&B De Monnick',
             'description' => 'De Monnick ligt in Monnickendam en biedt accommodatie met een terras en gratis WiFi. Deze bed & breakfast beschikt over een tuin. De bed & breakfast is voorzien van een flatscreen-tv met satellietzenders. Er wordt elke ochtend een continentaal ontbijt geserveerd. In de omgeving kunt u uitstekend fietsen.',
             'type' => ListingType::BedAndBreakfast,
         ]);
 
-        Room::create([
-            'listing_id' => 1,
+        $listing->rooms()->save(new Room([
             'name' => 'Huisje',
             'description' => 'Accommodatie met een terras en gratis WiFi.',
-        ]);
+        ]));
+
+        $listing->rooms()->save(new Room([
+            'name' => 'Huisje',
+            'description' => 'Accommodatie met een terras en gratis WiFi.',
+        ]));
     }
 }
