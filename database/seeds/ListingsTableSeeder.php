@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Domain\Listings\Models\Listing;
 use App\Domain\Listings\Models\Room;
+use App\Domain\Listings\Models\Listing;
 use App\Domain\Listings\Enums\ListingType;
 
 class ListingsTableSeeder extends Seeder
