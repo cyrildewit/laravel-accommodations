@@ -29,7 +29,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('portal.auth.register');
+        return view('management.auth.register');
     }
 
     /**
