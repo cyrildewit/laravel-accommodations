@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 use App\Domain\Users\Models\User;
 use App\Domain\Listings\Models\Room;
 use App\Domain\Listings\Models\Listing;
-use App\Domain\Addresses\Models\Address;
+use App\Domain\Locations\Models\Location;
 use App\Domain\Listings\Enums\ListingType;
 
 class ListingsTableSeeder extends Seeder
@@ -26,8 +26,9 @@ class ListingsTableSeeder extends Seeder
         ]);
 
         $listing->location()->save(new Location([
-            'lng' => '52.459534',
             'lat' => '5.035671',
+            'lng' => '52.459534',
+            'formatted_address' => 'Noordeinde 8, 1141 AM, Nederland'
         ]));
 
         $listing->rooms()->save(new Room([
@@ -40,13 +41,13 @@ class ListingsTableSeeder extends Seeder
             'description' => 'Accommodatie met een terras en gratis WiFi.',
         ]));
 
-        $listing->address()->save(new Address([
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'country' => 'nl',
-            'street' => 'Noordeinde',
-            'street_number' => 8,
-            'post_code' => '1141 AM',
-        ]));
+        // $listing->address()->save(new Address([
+        //     'first_name' => 'John',
+        //     'last_name' => 'Doe',
+        //     'country' => 'nl',
+        //     'street' => 'Noordeinde',
+        //     'street_number' => 8,
+        //     'post_code' => '1141 AM',
+        // ]));
     }
 }
