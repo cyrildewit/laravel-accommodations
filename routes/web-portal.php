@@ -4,7 +4,6 @@ Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
 
     // Dashboard
     Route::get('/', 'DashboardController@index')->name('dashboard');
-
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {

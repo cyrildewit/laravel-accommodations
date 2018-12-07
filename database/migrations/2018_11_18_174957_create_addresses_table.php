@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAddressesTable extends Migration
 {
@@ -42,7 +42,6 @@ class CreateAddressesTable extends Migration
         // - $table->string('alias'); // aka name
         // - $table->float('lat', 10, 6)->nullable();
         // - $table->float('lng', 10, 6)->nullable();
-
     }
 
     /**

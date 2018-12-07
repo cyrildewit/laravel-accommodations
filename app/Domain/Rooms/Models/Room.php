@@ -4,7 +4,7 @@ namespace App\Domain\Listings\Models;
 
 use Spatie\Permission\Models\Role as BaseRole;
 
-class Role extends BaseRole
+class Room extends BaseRole
 {
     public static function generatePermissionsFor()
     {

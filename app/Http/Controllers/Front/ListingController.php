@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
-use Artesaos\SEOTools\Facades\SEOMeta;
 use App\Domain\Listings\Models\Listing;
+use App\Http\Controllers\Controller;
 
 class ListingController extends Controller
 {
