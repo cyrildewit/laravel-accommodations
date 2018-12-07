@@ -25,6 +25,11 @@ class ListingsTableSeeder extends Seeder
             'type' => ListingType::BedAndBreakfast,
         ]);
 
+        $listing->location()->save(new Location([
+            'lng' => '52.459534',
+            'lat' => '5.035671',
+        ]));
+
         $listing->rooms()->save(new Room([
             'name' => 'Huisje',
             'description' => 'Accommodatie met een terras en gratis WiFi.',
