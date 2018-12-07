@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'portal',
+        'guard'     => 'portal',
         'passwords' => 'users',
     ],
 
@@ -37,17 +37,17 @@ return [
 
     'guards' => [
         'portal' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'users',
         ],
 
         'management' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'managers',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver'   => 'token',
             'provider' => 'users',
         ],
     ],
@@ -72,12 +72,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Domain\Users\Models\User::class,
+            'model'  => App\Domain\Users\Models\User::class,
         ],
 
         'managers' => [
             'driver' => 'eloquent',
-            'model' => App\Domain\Managers\Models\Manager::class,
+            'model'  => App\Domain\Managers\Models\Manager::class,
         ],
 
         // 'users' => [
@@ -104,8 +104,8 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'table'    => 'password_resets',
+            'expire'   => 60,
         ],
     ],
 
