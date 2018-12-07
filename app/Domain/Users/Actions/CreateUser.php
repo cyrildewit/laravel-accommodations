@@ -2,8 +2,8 @@
 
 namespace App\Domain\Users\Actions;
 
-use App\Domain\Users\Models\User;
 use App\Domain\Users\Exceptions\EmailNotUniqueException;
+use App\Domain\Users\Models\User;
 
 class CreateUser
 {
@@ -20,7 +20,7 @@ class CreateUser
             throw new EmailNotUniqueException($email.' should be unique.');
         }
 
-        $user = new User;
+        $user = new User();
         $user->email = $data['email'];
         $user->password = $data['password'];
         $user->save();

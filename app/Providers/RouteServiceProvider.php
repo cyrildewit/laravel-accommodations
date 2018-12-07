@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -62,7 +62,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(function () {
                 try {
                     require base_path('routes/web-front.php');
-                } catch  (Exception $exception) {
+                } catch (Exception $exception) {
                     logger()->warning("Front routes weren't included because {$exception->getMessage()}.");
                 }
 
@@ -88,7 +88,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(function () {
                 try {
                     require base_path('routes/web-portal.php');
-                } catch  (Exception $exception) {
+                } catch (Exception $exception) {
                     logger()->warning("Portal routes weren't included because {$exception->getMessage()}.");
                 }
 
@@ -114,7 +114,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(function () {
                 try {
                     require base_path('routes/web-management.php');
-                } catch  (Exception $exception) {
+                } catch (Exception $exception) {
                     logger()->warning("Management routes weren't included because {$exception->getMessage()}.");
                 }
 
@@ -138,7 +138,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(function () {
                 try {
                     require base_path('routes/api.php');
-                } catch  (Exception $exception) {
+                } catch (Exception $exception) {
                     logger()->warning("API routes weren't included because {$exception->getMessage()}.");
                 }
             });

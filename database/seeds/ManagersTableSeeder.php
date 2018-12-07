@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
 use App\Domain\Managers\Models\Manager;
+use Illuminate\Database\Seeder;
 
 class ManagersTableSeeder extends Seeder
 {
@@ -14,10 +13,10 @@ class ManagersTableSeeder extends Seeder
     public function run()
     {
         $cyril = Manager::create([
-            'name' => 'Cyril de Wit',
-            'email' => 'cyrilwit@gmail.com',
+            'name'              => 'Cyril de Wit',
+            'email'             => 'cyrilwit@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('pass'),
+            'password'          => bcrypt('pass'),
         ]);
 
         $cyril->assignRole('super-admin');

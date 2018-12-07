@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use App\Domain\Listings\Models\Listing;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
 class RolesAndPermissionsTableSeeder extends Seeder
@@ -49,7 +49,7 @@ class RolesAndPermissionsTableSeeder extends Seeder
         $role = Role::create(['name' => 'member']);
         $role->givePermissionTo([
             'browse_portal',
-            'add_listings'
+            'add_listings',
         ]);
     }
 

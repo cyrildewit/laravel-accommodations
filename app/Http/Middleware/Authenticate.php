@@ -15,12 +15,13 @@ class Authenticate extends Middleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string[]  ...$guards
-     * @return mixed
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     * @param string[]                 ...$guards
      *
      * @throws \Illuminate\Auth\AuthenticationException
+     *
+     * @return mixed
      */
     public function handle($request, Closure $next, ...$guards)
     {
@@ -32,12 +33,13 @@ class Authenticate extends Middleware
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return string
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
             $guard = array_first($this->guards);
 
             switch ($guard) {

@@ -3,8 +3,9 @@
 Route::middleware('auth:management', 'can:browse_management')->group(function () {
 
     // Dashboard
-    Route::get('/', function () {return 'dashboard';})->name('dashboard');
-
+    Route::get('/', function () {
+        return 'dashboard';
+    })->name('dashboard');
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {
