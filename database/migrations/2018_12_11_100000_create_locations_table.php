@@ -19,7 +19,7 @@ class CreateLocationsTable extends Migration
             $table->morphs('locatable');
             $table->decimal('lat', 11, 8);
             $table->decimal('lng', 10, 8);
-            $taable->string('formatted_address');
+            $table->string('formatted_address');
             $table->timestamps();
         });
     }
