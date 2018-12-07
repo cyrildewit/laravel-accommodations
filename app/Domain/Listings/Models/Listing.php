@@ -53,12 +53,12 @@ class Listing extends Model
     }
 
     /**
-     * Get the attached address of the listing.
+     * Get the attached location of the listing.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function address(): MorphOne
+    public function location(): MorphOne
     {
-        return $this->morphOne(Address::class, 'addressable');
+        return $this->morphOne(Location::class, 'locatable');
     }
 }
