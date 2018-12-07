@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use App\Domain\Listings\Enums\ListingType;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListingsTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateListingsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
-            $table->morphs('locatable')->unsigned();
+            $table->morphs('locatable');
             $table->decimal('lng', 10, 8);
             $table->decimal('lat', 11, 8);
             $table->timestamps();

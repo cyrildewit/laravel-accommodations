@@ -18,8 +18,8 @@ class CreateListingsTable extends Migration
             $table->increments('id'); // maybe uuid
             $table->integer('owner_id')->unsigned();
 
-            $table->string('slug');
-            $table->string('slug_id')->unique();
+            // $table->string('slug');
+            // $table->string('slug_id')->unique();
 
             $table->string('name');
             $table->text('description');
