@@ -41,6 +41,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebPortalRoutes();
 
+        $this->mapWebSecureRoutes();
+
         $this->mapWebFrontRoutes();
     }
 
@@ -90,6 +92,32 @@ class RouteServiceProvider extends ServiceProvider
                     require base_path('routes/web-portal.php');
                 } catch (Exception $exception) {
                     logger()->warning("Portal routes weren't included because {$exception->getMessage()}.");
+                }
+
+                Route::fallback('NotFoundController')->name('errors.404');
+            });
+    }
+
+    /**
+     * Define the "secure" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebSecureRoutes()
+    {
+        $namespace = $this->namespace.'\Secure';
+
+        Route::domain('secure.laravel-accommodations.test')
+            ->name('secure.')
+            ->middleware('web')
+            ->namespace($namespace)
+            ->group(function () {
+                try {
+                    require base_path('routes/web-secure.php');
+                } catch (Exception $exception) {
+                    logger()->warning("Secure routes weren't included because {$exception->getMessage()}.");
                 }
 
                 Route::fallback('NotFoundController')->name('errors.404');
