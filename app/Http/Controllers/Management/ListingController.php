@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Management;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
@@ -30,7 +30,8 @@ class ListingController extends Controller
     /**
      * Store listing.
      *
-     * @param  Illuminate\Http\Request  $request
+     * @param Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +42,8 @@ class ListingController extends Controller
     /**
      * Show listing.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param \App\Models\Partner $partner
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,7 +54,8 @@ class ListingController extends Controller
     /**
      * Edit listing.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param \App\Models\Partner $partner
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,7 +66,8 @@ class ListingController extends Controller
     /**
      * Update listing.
      *
-     * @param  Illuminate\Http\Request  $request
+     * @param Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)

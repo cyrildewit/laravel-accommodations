@@ -34,7 +34,6 @@ Route::middleware('auth:management', 'can:browse_management')->group(function ()
     Route::get('/users/{user}/edit', 'UserController@edit')->name('user.edit');
     Route::put('/users/{user}/update', 'UserController@update')->name('user.update');
     Route::delete('/users/{user}', 'UserController@destroy')->name('user.destroy');
-
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {
