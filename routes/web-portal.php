@@ -2,8 +2,11 @@
 
 Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
 
+    // Redirect index to dashboard
+    Route::redirect('/', '/dashboard');
+
     // Dashboard
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/', 'DashboardController@index')->name('dashboard.index');
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {
