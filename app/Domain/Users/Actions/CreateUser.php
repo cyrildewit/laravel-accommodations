@@ -2,8 +2,8 @@
 
 namespace App\Domain\Users\Actions;
 
-use App\Domain\Users\Exceptions\EmailNotUniqueException;
 use App\Domain\Users\Models\User;
+use App\Domain\Users\Exceptions\EmailNotUniqueException;
 
 class CreateUser
 {

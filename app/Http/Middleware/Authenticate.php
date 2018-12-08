@@ -39,7 +39,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (!$request->expectsJson()) {
+        if (! $request->expectsJson()) {
             $guard = array_first($this->guards);
 
             switch ($guard) {

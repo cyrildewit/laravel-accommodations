@@ -3,7 +3,6 @@
 namespace App\Domain\Users\Models;
 
 use Spatie\Permission\Traits\HasRoles;
-use App\Domain\Listings\Models\Listing;
 use App\Domain\Bookings\Models\Booking;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
