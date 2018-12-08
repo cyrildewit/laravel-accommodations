@@ -3,6 +3,7 @@
 namespace App\Domain\Rooms\Models;
 
 use Spatie\EloquentSortable\Sortable;
+use App\Domain\Listings\Models\Listing;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 
