@@ -2,8 +2,8 @@
 
 namespace App\Domain\Bookings\Models;
 
-use App\Domain\Users\Models\User;
 use App\Domain\Rooms\Models\Room;
+use App\Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

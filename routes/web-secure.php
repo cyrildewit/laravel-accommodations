@@ -13,7 +13,6 @@ Route::middleware('auth:secure', 'can:browse_secure')->group(function () {
 
     // Settings
     Route::get('/settings', 'SettingController@index')->name('setting.index');
-
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {

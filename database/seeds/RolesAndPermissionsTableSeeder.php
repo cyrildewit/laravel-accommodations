@@ -1,9 +1,9 @@
 <?php
 
-use App\Domain\Listings\Models\Listing;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Domain\Listings\Models\Listing;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\PermissionRegistrar;
 
 class RolesAndPermissionsTableSeeder extends Seeder

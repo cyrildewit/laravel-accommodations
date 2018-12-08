@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Domain\Listings\Models\Listing;
 use App\Http\Controllers\Controller;
+use App\Domain\Listings\Models\Listing;
 
 class ListingController extends Controller
 {
