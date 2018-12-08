@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Listings\Models;
+namespace App\Domain\Rooms\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 
 class Room extends Model implements Sortable
