@@ -21,12 +21,16 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             switch ($guard) {
                 case 'management':
-                    $home = 'management.dashboard';
+                    $home = 'management.dashboard.index';
+                    break;
+
+                case 'secure':
+                    $home = 'secure.dashboard.index';
                     break;
 
                 case 'portal':
                 default:
-                    $home = 'portal.dashboard';
+                    $home = 'portal.dashboard.index';
             }
 
             return redirect()->route($home);
