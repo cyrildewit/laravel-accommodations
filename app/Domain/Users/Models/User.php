@@ -14,7 +14,7 @@ class User extends Authenticatable
         Notifiable,
         SoftDeletes;
 
-    protected $guard_name = 'portal';
+    protected $guard_name = 'secure';
 
     /**
      * The attributes that are mass assignable.
@@ -34,13 +34,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * Get the listings of the user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function listings()
-    {
-        return $this->hasMany(Listing::class, 'owner_id');
-    }
+    // /**
+    //  * Get the listings of the user.
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function bookings()
+    // {
+    //     return $this->hasMany(Listing::class, 'owner_id');
+    // }
 }
