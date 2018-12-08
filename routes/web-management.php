@@ -2,10 +2,39 @@
 
 Route::middleware('auth:management', 'can:browse_management')->group(function () {
 
+    // Redirect index to dashboard
+    Route::redirect('/', '/dashboard');
+
     // Dashboard
-    Route::get('/', function () {
-        return 'dashboard';
-    })->name('dashboard');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+
+    // Listings
+    Route::get('/listings', 'ListingController@index')->name('listing.index');
+    Route::get('/listings/create', 'ListingController@create')->name('listing.create');
+    Route::post('/listings/store', 'ListingController@store')->name('listing.store');
+    Route::get('/listings/{listing}', 'ListingController@show')->name('listing.show');
+    Route::get('/listings/{listing}/edit', 'ListingController@edit')->name('listing.edit');
+    Route::put('/listings/{listing}/update', 'ListingController@update')->name('listing.update');
+    Route::delete('/listings/{listing}', 'ListingController@destroy')->name('listing.destroy');
+
+    // Bookings
+    Route::get('/bookings', 'BookingController@index')->name('booking.index');
+    Route::get('/bookings/create', 'BookingController@create')->name('booking.create');
+    Route::post('/bookings/store', 'BookingController@store')->name('booking.store');
+    Route::get('/bookings/{listing}', 'BookingController@show')->name('booking.show');
+    Route::get('/bookings/{listing}/edit', 'BookingController@edit')->name('booking.edit');
+    Route::put('/bookings/{listing}/update', 'BookingController@update')->name('booking.update');
+    Route::delete('/bookings/{listing}', 'BookingController@destroy')->name('booking.destroy');
+
+    // Users
+    Route::get('/users', 'UserController@index')->name('user.index');
+    Route::get('/users/create', 'UserController@create')->name('user.create');
+    Route::post('/users/store', 'UserController@store')->name('user.store');
+    Route::get('/users/{user}', 'UserController@show')->name('user.show');
+    Route::get('/users/{user}/edit', 'UserController@edit')->name('user.edit');
+    Route::put('/users/{user}/update', 'UserController@update')->name('user.update');
+    Route::delete('/users/{user}', 'UserController@destroy')->name('user.destroy');
+
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {
