@@ -1,11 +1,11 @@
 <?php
 
-use App\Domain\Listings\Enums\ListingType;
-use App\Domain\Listings\Models\Listing;
-use App\Domain\Listings\Models\Room;
-use App\Domain\Locations\Models\Location;
-use App\Domain\Users\Models\User;
 use Illuminate\Database\Seeder;
+use App\Domain\Rooms\Models\Room;
+use App\Domain\Owners\Models\Owner;
+use App\Domain\Listings\Models\Listing;
+use App\Domain\Locations\Models\Location;
+use App\Domain\Listings\Enums\ListingType;
 
 class ListingsTableSeeder extends Seeder
 {
@@ -16,9 +16,9 @@ class ListingsTableSeeder extends Seeder
      */
     public function run()
     {
-        $john = User::where('email', 'johndoe@example.com')->first();
+        $jamy = Owner::where('email', 'jamyjohnson@example.com')->first();
         $listing = Listing::create([
-            'owner_id'    => $john->id,
+            'owner_id'    => $jamy->id,
             'name'        => 'B&B De Monnick',
             'description' => 'De Monnick ligt in Monnickendam en biedt accommodatie met een terras en gratis WiFi. Deze bed & breakfast beschikt over een tuin. De bed & breakfast is voorzien van een flatscreen-tv met satellietzenders. Er wordt elke ochtend een continentaal ontbijt geserveerd. In de omgeving kunt u uitstekend fietsen.',
             'type'        => ListingType::BedAndBreakfast,
