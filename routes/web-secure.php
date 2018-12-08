@@ -1,12 +1,12 @@
 <?php
 
-Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
+Route::middleware('auth:secure', 'can:browse_secure')->group(function () {
 
     // Redirect index to dashboard
     Route::redirect('/', '/dashboard');
 
     // Dashboard
-    Route::get('/', 'DashboardController@index')->name('dashboard.index');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {

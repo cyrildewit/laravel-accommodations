@@ -47,6 +47,10 @@ class Authenticate extends Middleware
                     $login = 'management.auth.login';
                     break;
 
+                case 'secure':
+                    $login = 'secure.auth.login';
+                    break;
+
                 case 'portal':
                 default:
                     $login = 'portal.auth.login';

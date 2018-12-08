@@ -36,9 +36,14 @@ return [
     */
 
     'guards' => [
-        'portal' => [
+        'secure' => [
             'driver'   => 'session',
             'provider' => 'users',
+        ],
+
+        'portal' => [
+            'driver'   => 'session',
+            'provider' => 'owners',
         ],
 
         'management' => [
@@ -75,15 +80,15 @@ return [
             'model'  => App\Domain\Users\Models\User::class,
         ],
 
+        'owners' => [
+            'driver' => 'eloquent',
+            'model'  => App\Domain\Owners\Models\Owner::class,
+        ],
+
         'managers' => [
             'driver' => 'eloquent',
             'model'  => App\Domain\Managers\Models\Manager::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
