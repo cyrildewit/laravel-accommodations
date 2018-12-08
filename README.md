@@ -2,6 +2,10 @@
 
 > Open-source booking platform for accomodations
 
+## Copyright
+
+© 2018 Cyril de Wit, All Rights Reserved.
+
 ## Specifications
 
 ### Overview
