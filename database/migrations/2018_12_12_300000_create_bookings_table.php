@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration
             // $table->integer('listing_id')->unsigned();
             $table->integer('room_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->integer('reference_id')->unique();
+            $table->string('reference_id')->unique();
             $table->date('check_in_date');
             $table->date('check_out_date');
             $table->integer('number_of_guests');
