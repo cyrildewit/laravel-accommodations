@@ -9,16 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Booking extends Model
 {
-    // /**
-    //  * Get the listing.
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-    //  */
-    // public function listing(): MorphTo
-    // {
-    //     return $this->belongsTo(Listing::class);
-    // }
-
     /**
      * Get the room.
      *
