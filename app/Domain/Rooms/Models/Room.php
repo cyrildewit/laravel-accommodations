@@ -54,29 +54,47 @@ class Room extends Model implements Sortable
         return $this->hasMany(Booking::class);
     }
 
-    public function isAvailableForPeriod(DateTime $start, DateTime $end)
+    /**
+     * Determine if the room is available for the given period.
+     *
+     * @param  \DateTime  $startDate
+     * @param  \DateTime  $endDate
+     * @return bool
+     */
+    public function isAvailableForPeriod(DateTime $startDate, DateTime $endDate)
     {
         $count = $this->bookings()
-            ->where(function ($query) use ($start, $end) {
+            ->where(function ($query) use ($startDate, $endDate) {
+                $query->where('check_in_date', '<=', $startDate)
+                      ->where('check_out_date', '>=', $endDate);
+            })
+            ->orWhere(function ($query) use ($startDate, $endDate) {
+                $query->where('check_in_date', '>=', $startDate)
+                      ->where('check_out_date', '<=', $endDate);
+            })
+            ->orWhere(function ($query) use ($startDate, $endDate) {
+                $query->where('check_in_date', '>=', $startDate)
+                      ->where('check_out_date', '=>', $endDate)
+                      ->where('check_in_date', '<=', $endDate);
+            })
+            ->orWhere(function ($query) use ($startDate, $endDate) {
                 $query->where('check_in_date', '<=', $start)
-                      ->where('check_out_date', '>=', $end);
-            })
-            ->orWhere(function ($query) use ($start, $end) {
-                $query->where('check_in_date', '>=', $start)
-                      ->where('check_out_date', '<=', $end);
-            })
-            ->orWhere(function ($query) use ($start, $end) {
-                $query->where('check_in_date', '>=', $start)
-                      ->where('check_out_date', '=>', $end)
-                      ->where('check_in_date', '<=', $end);
-            })
-            ->orWhere(function ($query) use ($start, $end) {
-                $query->where('check_in_date', '<=', $start)
-                      ->where('check_out_date', '<=', $end)
+                      ->where('check_out_date', '<=', $endDate)
                       ->where('check_out_date', '>=', $start);
             })
             ->count();
 
         return $count === 0;
+    }
+
+    /**
+     * Determine if the room is available on the given date.
+     *
+     * @param  \DateTime  $date
+     * @return bool
+     */
+    public function isAvailableForDate(DateTime $date)
+    {
+        //
     }
 }
