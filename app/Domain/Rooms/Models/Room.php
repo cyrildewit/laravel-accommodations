@@ -63,28 +63,7 @@ class Room extends Model implements Sortable
      */
     public function isAvailableForPeriod(DateTime $startDate, DateTime $endDate)
     {
-        $count = $this->bookings()
-            ->where(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '<=', $startDate)
-                      ->where('check_out_date', '>=', $endDate);
-            })
-            ->orWhere(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '>=', $startDate)
-                      ->where('check_out_date', '<=', $endDate);
-            })
-            ->orWhere(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '>=', $startDate)
-                      ->where('check_out_date', '=>', $endDate)
-                      ->where('check_in_date', '<=', $endDate);
-            })
-            ->orWhere(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '<=', $start)
-                      ->where('check_out_date', '<=', $endDate)
-                      ->where('check_out_date', '>=', $start);
-            })
-            ->count();
-
-        return $count === 0;
+        return $this->bookings()->overlapsPeriod($startDate, $endDate)->count() === 0;
     }
 
     /**
@@ -95,6 +74,6 @@ class Room extends Model implements Sortable
      */
     public function isAvailableForDate(DateTime $date)
     {
-        //
+        return $this->bookings()->overlapsDate($date); // todo
     }
 }
