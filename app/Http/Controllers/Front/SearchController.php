@@ -8,6 +8,10 @@ class SearchController extends Controller
 {
     public function index()
     {
-        return view('front.search.index');
+        $listings = Listing::all();
+
+        return view('front.search.index', [
+            $matchedListings = $listings,
+        ]);
     }
 }
