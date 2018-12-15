@@ -63,7 +63,7 @@ class Room extends Model implements Sortable
      */
     public function isAvailableForPeriod(DateTime $startDate, DateTime $endDate)
     {
-        return $this->bookings()->overlapsPeriod($startDate, $endDate)->count() === 0;
+        return $this->availableForPeriod($startDate, $endDate)->count() === 0;
     }
 
     /**
@@ -74,6 +74,51 @@ class Room extends Model implements Sortable
      */
     public function isAvailableForDate(DateTime $date)
     {
-        return $this->bookings()->overlapsDate($date)->count() === 0;
+        return $this->availableForDate($date)->count() === 0;
+    }
+
+    /**
+     * Scope a query to only include rooms which are available for the given period.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \DateTime  $startDate
+     * @param  \DateTime  $endDate
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAvailableForPeriod($query, DateTime $startDate, DateTime $endDate)
+    {
+        return $this->leftJoin('bookings', 'rooms.id', '=', 'bookings.room_id')
+            ->where(function ($query) use ($startDate, $endDate) {
+                $query->where('bookings.check_in_date', '<=', $startDate)
+                      ->where('bookings.check_out_date', '>=', $endDate);
+            })
+            ->orWhere(function ($query) use ($startDate, $endDate) {
+                $query->where('bookings.check_in_date', '>=', $startDate)
+                      ->where('bookings.check_out_date', '<=', $endDate);
+            })
+            ->orWhere(function ($query) use ($startDate, $endDate) {
+                $query->where('bookings.check_in_date', '>=', $startDate)
+                      ->where('bookings.check_out_date', '=>', $endDate)
+                      ->where('bookings.check_in_date', '<=', $endDate);
+            })
+            ->orWhere(function ($query) use ($startDate, $endDate) {
+                $query->where('bookings.check_in_date', '<=', $startDate)
+                      ->where('bookings.check_out_date', '<=', $endDate)
+                      ->where('bookings.check_out_date', '>=', $startDate);
+            });
+    }
+
+    /**
+     * Scope a query to only include bookings which overlaps the given date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \DateTime  $date
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAvailableForDate($query, DateTime $date)
+    {
+        return $this->leftJoin('bookings', 'rooms.id', '=', 'bookings.room_id')
+            ->where('bookings.check_in_date', '<=', $date)
+            ->where('bookings.check_out_date', '>=', $date);
     }
 }

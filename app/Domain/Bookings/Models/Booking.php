@@ -28,47 +28,4 @@ class Booking extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    /**
-     * Scope a query to only include bookings which overlaps the given period.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param  \DateTime  $startDate
-     * @param  \DateTime  $endDate
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeOperlapsPeriod($query, DateTime $startDate, DateTime $endDate)
-    {
-        return $query->where(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '<=', $startDate)
-                      ->where('check_out_date', '>=', $endDate);
-            })
-            ->orWhere(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '>=', $startDate)
-                      ->where('check_out_date', '<=', $endDate);
-            })
-            ->orWhere(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '>=', $startDate)
-                      ->where('check_out_date', '=>', $endDate)
-                      ->where('check_in_date', '<=', $endDate);
-            })
-            ->orWhere(function ($query) use ($startDate, $endDate) {
-                $query->where('check_in_date', '<=', $start)
-                      ->where('check_out_date', '<=', $endDate)
-                      ->where('check_out_date', '>=', $start);
-            });
-    }
-
-    /**
-     * Scope a query to only include bookings which overlaps the given date.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param  \DateTime  $date
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeOperlapsDate($query, DateTime $date)
-    {
-        return $query->where('check_in_date', '<=', $date)
-            ->where('check_out_date', '>=', $date);
-    }
 }
