@@ -11,6 +11,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Configuration for StyleCI
+- Added the `Bookings` Eloquent model to the bookings domain
+- Added the `isAvailalbeForPeriod` method to the `Room` Eloquent model
+- Added the `isAvailableForDate` method to the `Room` Eloquent model
+- Added the `availableForPeriod` scope to the `Room` Eloquent model
+- Added the `availableFordate` scope to the `Room` Eloquent model
+- Added factories for `Listing`, `Owner` and `Room`
+
+### Changed
+
+- Make `Room` Eloquent model sortable using `spatie/eloquent-sortable`
+
+## [v2.5.0] (2018-12-08)
+
+### Added
+
 - Added the `Owners` Eloquent model to the owners domain
 - Added the `BookingController` for management with all basic actions
 - Added the `ListingController` for management with all basic actions
@@ -46,5 +62,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Splitted the routes into different files and load them in the `RouteServiceProvider`
 - Created seeds for almost all Eloquent models
 
-[Unreleased]: https://github.com/cyrildewit/laravel-accommodations/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/cyrildewit/laravel-accommodations/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/cyrildewit/laravel-accommodations/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/cyrildewit/laravel-accommodations/compare/v0.1.0...v0.2.0
