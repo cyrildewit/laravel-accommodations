@@ -74,6 +74,6 @@ class Room extends Model implements Sortable
      */
     public function isAvailableForDate(DateTime $date)
     {
-        return $this->bookings()->overlapsDate($date); // todo
+        return $this->bookings()->overlapsDate($date)->count() === 0;
     }
 }

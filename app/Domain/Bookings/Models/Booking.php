@@ -30,7 +30,7 @@ class Booking extends Model
     }
 
     /**
-     * Scope a query to only include bookings that overlaps the given period.
+     * Scope a query to only include bookings which overlaps the given period.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param  \DateTime  $startDate
@@ -59,8 +59,16 @@ class Booking extends Model
             });
     }
 
-    public function scopeOperlapsDate($query)
+    /**
+     * Scope a query to only include bookings which overlaps the given date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \DateTime  $date
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOperlapsDate($query, DateTime $date)
     {
-        return $query; // todo
+        return $query->where('check_in_date', '<=', $date)
+            ->where('check_out_date', '>=', $date);
     }
 }
