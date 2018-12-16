@@ -7,7 +7,6 @@ use Tests\TestCase;
 use App\Domain\Rooms\Models\Room;
 use App\Domain\Owners\Models\Owner;
 use App\Domain\Listings\Models\Listing;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RoomsTest extends TestCase

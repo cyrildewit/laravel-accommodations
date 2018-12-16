@@ -4,8 +4,8 @@ namespace App\Domain\Rooms\Models;
 
 use DateTime;
 use Spatie\EloquentSortable\Sortable;
-use App\Domain\Listings\Models\Listing;
 use App\Domain\Bookings\Models\Booking;
+use App\Domain\Listings\Models\Listing;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;
