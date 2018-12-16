@@ -165,6 +165,7 @@ return [
          */
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Spatie\SchemalessAttributes\SchemalessAttributesServiceProvider::class,
         BenSampo\Enum\EnumServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,

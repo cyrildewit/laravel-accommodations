@@ -2,11 +2,11 @@
 
 namespace App\Domain\Users\Models;
 
-use App\Domain\Listings\Models\Listing;
+use Spatie\Permission\Traits\HasRoles;
+use App\Domain\Bookings\Models\Booking;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -34,13 +34,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // /**
-    //  * Get the listings of the user.
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    //  */
-    // public function bookings()
-    // {
-    //     return $this->hasMany(Listing::class, 'owner_id');
-    // }
+    /**
+     * Get the bookings of the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

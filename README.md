@@ -2,6 +2,10 @@
 
 > Open-source booking platform for accomodations
 
+## Copyright
+
+© 2018 Cyril de Wit, All Rights Reserved.
+
 ## Specifications
 
 ### Overview
@@ -21,11 +25,16 @@ The final application needs to consists of different environments. For instance 
   * Routes file: `routes/web-front.php`
   * URL: `domain.com`
   * Accessible by: everyone (guests)
-* Accommodations Portal
+* Secure Portal
+  * Controllers: `App\Http\Controllers\Secure`
+  * Routes file: `routes/web-secure.php`
+  * URL: `secure.domain.com`
+  * Accessible by: users
+* Listings Portal
   * Controllers: `App\Http\Controllers\Portal`
   * Routes file: `routes/web-portal.php`
   * URL: `my.domain.com`
-  * Accessible by: users
+  * Accessible by: owners
 * Management
   * Controllers: `App\Http\Controllers\Management`
   * Routes file: `routes/web-management.php`

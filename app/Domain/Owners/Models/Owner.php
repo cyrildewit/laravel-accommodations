@@ -2,11 +2,11 @@
 
 namespace App\Domain\Owners\Models;
 
+use Spatie\Permission\Traits\HasRoles;
 use App\Domain\Listings\Models\Listing;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
 class Owner extends Authenticatable
 {

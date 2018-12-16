@@ -7,6 +7,12 @@ Route::middleware('auth:secure', 'can:browse_secure')->group(function () {
 
     // Dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+
+    // Booking
+    Route::get('/bookings', 'BookingController@index')->name('booking.index');
+
+    // Settings
+    Route::get('/settings', 'SettingController@index')->name('setting.index');
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {

@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Domain\Users\Models\User;
+use App\Domain\Owners\Models\Owner;
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Owner::class, function (Faker $faker) {
     return [
         'name'              => $faker->name,
         'email'             => $faker->unique()->safeEmail,

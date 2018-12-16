@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Domain\Users\Models\User;
+use App\Domain\Owners\Models\Owner;
 
-class UsersTableSeeder extends Seeder
+class OwnersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,16 +12,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $john = User::create([
-            'name'              => 'John Doe',
-            'email'             => 'johndoe@example.com',
+        $john = Owner::create([
+            'name'              => 'Jamy Johnson',
+            'email'             => 'jamyjohnson@example.com',
             'email_verified_at' => now(),
             'password'          => bcrypt('pass'),
         ]);
 
-        $jade = User::create([
-            'name'              => 'Jade Smith',
-            'email'             => 'jadesmith@example.com',
+        $jade = Owner::create([
+            'name'              => 'Jady Smith',
+            'email'             => 'jadymith@example.com',
             'email_verified_at' => now(),
             'password'          => bcrypt('pass'),
         ]);
