@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [v2.5.0] (2018-12-08)
+## [v0.3.0] (2018-12-16)
 
 ### Added
 
@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Make `Room` Eloquent model sortable using `spatie/eloquent-sortable`
 
-## [v2.5.0] (2018-12-08)
+## [v0.2.0] (2018-12-08)
 
 ### Added
 
