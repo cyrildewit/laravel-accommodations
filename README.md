@@ -30,10 +30,16 @@ The final application needs to consists of different environments. For instance 
   * Routes file: `routes/web-secure.php`
   * URL: `secure.domain.com`
   * Accessible by: users
+  * Pages:
+    * Dashboard
+    * Bookings
+    * Reviews
+    * ?(Timeline)
+    * Profile
 * Listings Portal
   * Controllers: `App\Http\Controllers\Portal`
   * Routes file: `routes/web-portal.php`
-  * URL: `my.domain.com`
+  * URL: `portal.domain.com`
   * Accessible by: owners
 * Management
   * Controllers: `App\Http\Controllers\Management`
