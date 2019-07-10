@@ -1,4 +1,4 @@
-@component('management.layouts.main', [
+@component('secure.layouts.main', [
     // 'meta' => $meta,
 ])
 <!-- Page Heading -->
