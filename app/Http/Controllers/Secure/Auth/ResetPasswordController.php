@@ -43,7 +43,7 @@ class ResetPasswordController extends Controller
      */
     protected function redirectTo()
     {
-        return route('secure.dashboard');
+        return route('secure.dashboard.index');
     }
 
     /**
