@@ -1,6 +1,6 @@
 <?php
 
-Route::middleware('auth:secure', 'can:browse_secure')->group(function () {
+Route::middleware('auth:secure')->group(function () {
 
     // Redirect index to dashboard
     Route::redirect('/', '/dashboard');
