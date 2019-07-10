@@ -5,6 +5,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/c2c562ce07.js"></script>
+
     <link rel="stylesheet" href="{{ mix('css/secure.css') }}">
 
     <script defer src="{{ mix('js/secure.app.js') }}"></script>
