@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Domain\Owners\Models\Owner;
-use App\Domain\Listings\Models\Listing;
-use App\Domain\Listings\Enums\ListingType;
+use Domain\Owners\Models\Owner;
+use Domain\Listing\Models\Listing;
+use Domain\Listing\Enums\ListingType;
 
 $factory->define(Listing::class, function (Faker $faker) {
     return [

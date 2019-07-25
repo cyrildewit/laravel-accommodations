@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Domain\Rooms\Models\Room;
-use App\Domain\Owners\Models\Owner;
-use App\Domain\Listings\Models\Listing;
-use App\Domain\Locations\Models\Location;
-use App\Domain\Listings\Enums\ListingType;
+use Domain\Room\Models\Room;
+use Domain\Owners\Models\Owner;
+use Domain\Listing\Models\Listing;
+use Domain\Location\Models\Location;
+use Domain\Listing\Enums\ListingType;
 
 class ListingsTableSeeder extends Seeder
 {

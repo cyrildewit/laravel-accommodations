@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use App\Domain\Listings\Enums\ListingType;
+use Domain\Listing\Enums\ListingType;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateListingsTable extends Migration

@@ -3,7 +3,7 @@
 
 <h2>Details</h2>
 <ul>
-    <li><strong>Type:</strong> {{ \App\Domain\Listings\Enums\ListingType::getDescription($listing->type) }}</li>
+    <li><strong>Type:</strong> {{ \Domain\Listings\Enums\ListingType::getDescription($listing->type) }}</li>
 </ul>
 
 <hr>

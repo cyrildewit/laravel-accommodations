@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use App\Domain\Bookings\Models\Booking;
+use Domain\Booking\Models\Booking;
 
 class BookingsTableSeeder extends Seeder
 {

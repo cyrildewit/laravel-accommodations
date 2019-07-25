@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use Carbon\Carbon;
 use Tests\TestCase;
-use App\Domain\Rooms\Models\Room;
-use App\Domain\Owners\Models\Owner;
-use App\Domain\Listings\Models\Listing;
+use Domain\Room\Models\Room;
+use Domain\Owners\Models\Owner;
+use Domain\Listing\Models\Listing;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RoomsTest extends TestCase
