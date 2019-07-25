@@ -16,11 +16,18 @@ class ListingsTableSeeder extends Seeder
      */
     public function run()
     {
+        $this->jamy_bbdemonnick();
+
+        $this->jade_hotel_zeus();
+    }
+
+    protected function jamy_bbdemonnick()
+    {
         $jamy = Owner::where('email', 'jamyjohnson@example.com')->first();
         $listing = Listing::create([
             'owner_id'    => $jamy->id,
             'name'        => 'B&B De Monnick',
-            'description' => 'De Monnick ligt in Monnickendam en biedt accommodatie met een terras en gratis WiFi. Deze bed & breakfast beschikt over een tuin. De bed & breakfast is voorzien van een flatscreen-tv met satellietzenders. Er wordt elke ochtend een continentaal ontbijt geserveerd. In de omgeving kunt u uitstekend fietsen.',
+            'description' => 'De Monnick ligt in Monnickendam en biedt accommodatie met een terras en gratis WiFi. Deze bed & breakfast beschikt over een tuin. De bed & breakfast is voorzien van een flatscreen-tv met satellietzenders. Er wordt elke ochtend een continentaal ontbijt geserveerd.',
             'type'        => ListingType::BedAndBreakfast,
         ]);
 
@@ -48,5 +55,16 @@ class ListingsTableSeeder extends Seeder
         //     'street_number' => 8,
         //     'post_code' => '1141 AM',
         // ]));
+    }
+
+    protected function jade_hotel_zeus()
+    {
+        $jade = Owner::where('email', 'jadymith@example.com')->first();
+        $listing = Listing::create([
+            'owner_id'    => $jade->id,
+            'name'        => 'Hotel Zeus',
+            'description' => 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+            'type'        => ListingType::Hotel,
+        ]);
     }
 }
