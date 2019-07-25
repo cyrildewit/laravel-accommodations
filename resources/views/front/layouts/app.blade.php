@@ -18,12 +18,7 @@
 </head>
 <body>
 
-    @include('front.layouts.partials.header')
-    @include('front.layouts.partials.flash-message')
-
     {{ $slot }}
-
-    @include('front.layouts.partials.header')
 
     {{-- <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
