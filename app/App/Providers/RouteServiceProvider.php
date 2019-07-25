@@ -55,12 +55,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebFrontRoutes()
     {
-        $namespace = $this->namespace.'\Front';
-
         Route::domain('laravel-accommodations.test')
             ->name('front.')
             ->middleware('web')
-            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-front.php');
@@ -68,7 +65,7 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Front routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController')->name('errors.404');
+                Route::fallback(\App\Http\Controllers\Front\NotFoundController::class)->name('errors.404');
             });
     }
 
