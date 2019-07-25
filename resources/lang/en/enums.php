@@ -1,6 +1,6 @@
 <?php
 
-use App\Domain\Listings\Enums\ListingType;
+use Domain\Listing\Enums\ListingType;
 
 return [
 

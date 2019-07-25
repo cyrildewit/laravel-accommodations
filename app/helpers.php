@@ -1,9 +1,19 @@
 <?php
 
-use Domain\Users\Models\User;
+use Domain\User\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 function current_user(): ?User
 {
-    return Auth::user();
+    return Auth::guard('secure')->user();
+}
+
+function current_owner(): ?Owner
+{
+    return Auth::guard('portal')->user();
+}
+
+function current_employee(): ?Employee
+{
+    return Auth::guard('management')->user();
 }

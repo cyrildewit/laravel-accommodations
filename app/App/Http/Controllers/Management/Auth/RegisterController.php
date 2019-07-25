@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Management\Auth;
 
-use App\Domain\Users\Models\User;
+use Domain\User\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,7 +53,7 @@ class RegisterController extends Controller
      *
      * @param array $data
      *
-     * @return \App\Domain\Users\Models\User
+     * @return \Domain\User\Models\User
      */
     protected function create(array $data)
     {

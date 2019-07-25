@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Users\Actions;
+namespace Domain\User\Actions;
 
-use App\Domain\Users\Models\User;
-use App\Domain\Users\Exceptions\EmailNotUniqueException;
+use Domain\User\Models\User;
+use Domain\User\Exceptions\EmailNotUniqueException;
 
 class CreateUser
 {

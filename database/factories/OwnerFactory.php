@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Domain\Owners\Models\Owner;
+use Domain\Owners\Models\Owner;
 
 $factory->define(Owner::class, function (Faker $faker) {
     return [

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Bookings\Models;
+namespace Domain\Booking\Models;
 
-use App\Domain\Rooms\Models\Room;
-use App\Domain\Users\Models\User;
+use Domain\Room\Models\Room;
+use Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

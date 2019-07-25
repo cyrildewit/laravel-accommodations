@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Domain\Listings\Models\Listing;
+use Domain\Listing\Models\Listing;
 
 class ListingController extends Controller
 {

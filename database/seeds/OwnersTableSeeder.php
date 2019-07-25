@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Domain\Owners\Models\Owner;
+use Domain\Owners\Models\Owner;
 
 class OwnersTableSeeder extends Seeder
 {

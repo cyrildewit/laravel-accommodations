@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use App\Domain\Listings\Models\Listing;
+use Domain\Listing\Models\Listing;
 
 // Auth::loginUsingId(1);
 // Auth::guard('management')->loginUsingId(1);

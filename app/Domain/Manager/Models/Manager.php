@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Domain\Owners\Models;
+namespace Domain\Manager\Models;
 
 use Spatie\Permission\Traits\HasRoles;
-use App\Domain\Listings\Models\Listing;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Owner extends Authenticatable
+class Manager extends Authenticatable
 {
     use HasRoles,
         Notifiable,
         SoftDeletes;
 
-    protected $guard_name = 'portal';
+    protected $guard_name = 'management';
 
     /**
      * The attributes that are mass assignable.
@@ -33,14 +32,4 @@ class Owner extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * Get the listings of the owner.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function listings()
-    {
-        return $this->hasMany(Listing::class, 'owner_id');
-    }
 }

@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Domain\Users\Models;
+namespace Domain\Owners\Models;
 
 use Spatie\Permission\Traits\HasRoles;
-use App\Domain\Bookings\Models\Booking;
+use Domain\Listing\Models\Listing;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Owner extends Authenticatable
 {
     use HasRoles,
         Notifiable,
         SoftDeletes;
 
-    protected $guard_name = 'secure';
+    protected $guard_name = 'portal';
 
     /**
      * The attributes that are mass assignable.
@@ -35,12 +35,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the bookings of the user.
+     * Get the listings of the owner.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bookings()
+    public function listings()
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasMany(Listing::class, 'owner_id');
     }
 }

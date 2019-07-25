@@ -77,17 +77,17 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model'  => App\Domain\Users\Models\User::class,
+            'model'  => Domain\User\Models\User::class,
         ],
 
         'owners' => [
             'driver' => 'eloquent',
-            'model'  => App\Domain\Owners\Models\Owner::class,
+            'model'  => Domain\Owners\Models\Owner::class,
         ],
 
         'managers' => [
             'driver' => 'eloquent',
-            'model'  => App\Domain\Managers\Models\Manager::class,
+            'model'  => Domain\Manager\Models\Manager::class,
         ],
     ],
 

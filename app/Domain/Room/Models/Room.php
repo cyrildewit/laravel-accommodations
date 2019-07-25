@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\Rooms\Models;
+namespace Domain\Room\Models;
 
 use DateTime;
 use Spatie\EloquentSortable\Sortable;
-use App\Domain\Bookings\Models\Booking;
-use App\Domain\Listings\Models\Listing;
+use Domain\Booking\Models\Booking;
+use Domain\Listing\Models\Listing;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;

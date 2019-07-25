@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\Listings\Models;
+namespace Domain\Listing\Models;
 
-use App\Domain\Rooms\Models\Room;
-use App\Domain\Users\Models\User;
+use Domain\Room\Models\Room;
+use Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use App\Domain\Locations\Models\Location;
+use Domain\Location\Models\Location;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Listing extends Model

@@ -1,8 +1,8 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Domain\Rooms\Models\Room;
-use App\Domain\Listings\Models\Listing;
+use Domain\Room\Models\Room;
+use Domain\Listing\Models\Listing;
 
 $factory->define(Room::class, function (Faker $faker) {
     return [
