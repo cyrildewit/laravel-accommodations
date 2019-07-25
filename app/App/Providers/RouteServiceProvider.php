@@ -8,15 +8,6 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * This namespace is applied to your controller routes.
-     *
-     * In addition, it is set as the URL generator's root namespace.
-     *
-     * @var string
-     */
-    protected $namespace = 'App\Http\Controllers';
-
-    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
@@ -78,12 +69,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebPortalRoutes()
     {
-        $namespace = $this->namespace.'\Portal';
-
         Route::domain('my.laravel-accommodations.test')
             ->name('portal.')
             ->middleware('web')
-            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-portal.php');
@@ -91,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Portal routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController')->name('errors.404');
+                Route::fallback(\App\Http\Controllers\Portal\NotFoundController::class)->name('errors.404');
             });
     }
 
@@ -104,12 +92,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebSecureRoutes()
     {
-        $namespace = $this->namespace.'\Secure';
-
         Route::domain('secure.laravel-accommodations.test')
             ->name('secure.')
             ->middleware('web')
-            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-secure.php');
@@ -117,7 +102,7 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Secure routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController')->name('errors.404');
+                Route::fallback(\App\Http\Controllers\Secure\NotFoundController::class)->name('errors.404');
             });
     }
 
@@ -130,12 +115,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebManagementRoutes()
     {
-        $namespace = $this->namespace.'\Management';
-
         Route::domain('manage.laravel-accommodations.test')
             ->name('management.')
             ->middleware('web')
-            ->namespace($namespace)
             ->group(function () {
                 try {
                     require base_path('routes/web-management.php');
@@ -143,7 +125,7 @@ class RouteServiceProvider extends ServiceProvider
                     logger()->warning("Management routes weren't included because {$exception->getMessage()}.");
                 }
 
-                Route::fallback('NotFoundController')->name('errors.404');
+                Route::fallback(\App\Http\Controllers\Management\NotFoundController::class)->name('errors.404');
             });
     }
 
@@ -159,7 +141,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::domain('api.laravel-accommodations.test')
             ->name('api.')
             ->middleware('api')
-            ->namespace($this->namespace)
             ->group(function () {
                 try {
                     require base_path('routes/api.php');

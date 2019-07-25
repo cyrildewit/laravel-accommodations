@@ -1,39 +1,49 @@
 <?php
 
+use App\Http\Controllers\Secure\DashboardController;
+use App\Http\Controllers\Secure\BookingController;
+use App\Http\Controllers\Secure\SettingController;
+
+use App\Http\Controllers\Secure\Auth\LoginController;
+use App\Http\Controllers\Secure\Auth\RegisterController;
+use App\Http\Controllers\Secure\Auth\ForgotPasswordController;
+use App\Http\Controllers\Secure\Auth\ResetPasswordController;
+use App\Http\Controllers\Secure\Auth\VerificationController;
+
 Route::middleware('auth:secure')->group(function () {
 
     // Redirect index to dashboard
     Route::redirect('/', '/dashboard');
 
     // Dashboard
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Booking
-    Route::get('/bookings', 'BookingController@index')->name('booking.index');
+    Route::get('/bookings', [BookingController::class, 'index'])->name('booking.index');
 
     // Settings
-    Route::get('/settings', 'SettingController@index')->name('setting.index');
+    Route::get('/settings', [SettingController::class, 'index'])->name('setting.index');
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {
 
     // Authentication routes
-    Route::get('login', 'LoginController@showLoginForm')->name('login');
-    Route::post('login', 'LoginController@login');
-    Route::post('logout', 'LoginController@logout')->name('logout');
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     // Registration routes
-    Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
-    Route::post('register', 'RegisterController@register');
+    Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('register', [RegisterController::class, 'register']);
 
     // Password reset routes
-    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
-    Route::post('password/reset', 'ResetPasswordController@reset')->name('password.update');
+    Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
     // Email verification routes
-    Route::get('email/verify', 'VerificationController@showLinkRequestForm')->name('verification.notice');
-    Route::get('email/verify/{id}', 'VerificationController@verify')->name('verification.verify');
-    Route::get('email/resend', 'VerificationController@resend')->name('verification.resend');
+    Route::get('email/verify', [VerificationController::class, 'showLinkRequestForm'])->name('verification.notice');
+    Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');
+    Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 });
