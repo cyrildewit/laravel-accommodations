@@ -16,6 +16,10 @@ mix
     .js('resources/js/front/app.js', 'public/js/front.app.js')
     .sass('resources/sass/front/front.scss', 'public/css/front.css')
 
+    // Secure resources
+    .js('resources/js/secure/app.js', 'public/js/secure.app.js')
+    .sass('resources/sass/secure/secure.scss', 'public/css/secure.css')
+
     // Portal resources
     .js('resources/js/portal/app.js', 'public/js/portal.app.js')
     .sass('resources/sass/portal/portal.scss', 'public/css/portal.css')

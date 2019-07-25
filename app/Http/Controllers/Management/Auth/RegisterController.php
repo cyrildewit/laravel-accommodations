@@ -71,7 +71,7 @@ class RegisterController extends Controller
      */
     protected function redirectTo()
     {
-        return route('management.dashboard');
+        return route('management.dashboard.index');
     }
 
     /**
