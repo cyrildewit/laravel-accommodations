@@ -13,12 +13,12 @@
             @include('front.layouts.partials.topbar')
 
             <!-- Begin Page Content -->
-            <div class="container-fluid">
+            <div class="container">
 
                 {{ $slot }}
 
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.container -->
 
         </div>
         <!-- End of Main Content -->
