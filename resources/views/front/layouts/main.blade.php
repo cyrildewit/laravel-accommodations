@@ -13,12 +13,7 @@
             @include('front.layouts.partials.topbar')
 
             <!-- Begin Page Content -->
-            <div class="container">
-
-                {{ $slot }}
-
-            </div>
-            <!-- /.container -->
+            {{ $slot }}
 
         </div>
         <!-- End of Main Content -->
