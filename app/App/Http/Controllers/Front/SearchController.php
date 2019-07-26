@@ -9,7 +9,9 @@ class SearchController extends Controller
 {
     public function index()
     {
-        $listings = Listing::paginate(15);
+        $listings = Listing::query()
+            ->with('location')
+            ->paginate(15);
 
         return view('front.search.index', [
             'listings' => $listings,
