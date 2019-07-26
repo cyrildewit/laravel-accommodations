@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Management\Auth\LoginController;
 use App\Http\Controllers\Management\Auth\RegisterController;
-use App\Http\Controllers\Management\Auth\ForgotPasswordController;
-use App\Http\Controllers\Management\Auth\ResetPasswordController;
 use App\Http\Controllers\Management\Auth\VerificationController;
+use App\Http\Controllers\Management\Auth\ResetPasswordController;
+use App\Http\Controllers\Management\Auth\ForgotPasswordController;
 
 Route::middleware('auth:management', 'can:browse_management')->group(function () {
 

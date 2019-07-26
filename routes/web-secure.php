@@ -1,14 +1,13 @@
 <?php
 
-use App\Http\Controllers\Secure\DashboardController;
 use App\Http\Controllers\Secure\BookingController;
 use App\Http\Controllers\Secure\SettingController;
-
+use App\Http\Controllers\Secure\DashboardController;
 use App\Http\Controllers\Secure\Auth\LoginController;
 use App\Http\Controllers\Secure\Auth\RegisterController;
-use App\Http\Controllers\Secure\Auth\ForgotPasswordController;
-use App\Http\Controllers\Secure\Auth\ResetPasswordController;
 use App\Http\Controllers\Secure\Auth\VerificationController;
+use App\Http\Controllers\Secure\Auth\ResetPasswordController;
+use App\Http\Controllers\Secure\Auth\ForgotPasswordController;
 
 Route::middleware('auth:secure')->group(function () {
 

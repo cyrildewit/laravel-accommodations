@@ -1,8 +1,8 @@
 <?php
 
+use Domain\Listing\Enums\ListingType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Domain\Listing\Enums\ListingType;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateListingsTable extends Migration

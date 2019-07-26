@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Domain\Room\Models\Room;
 use Domain\Owners\Models\Owner;
+use Illuminate\Database\Seeder;
 use Domain\Listing\Models\Listing;
 use Domain\Location\Models\Location;
 use Domain\Listing\Enums\ListingType;
