@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Domain\Listing\Models\Listing;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\ListingController;
 use App\Http\Controllers\Front\SearchController;
+use App\Http\Controllers\Front\ListingController;
 
 // Auth::loginUsingId(1);
 // Auth::guard('management')->loginUsingId(1);

@@ -2,8 +2,8 @@
 
 namespace Domain\Owners\Models;
 
-use Spatie\Permission\Traits\HasRoles;
 use Domain\Listing\Models\Listing;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;

@@ -2,8 +2,8 @@
 
 namespace Domain\User\Models;
 
-use Spatie\Permission\Traits\HasRoles;
 use Domain\Booking\Models\Booking;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -42,7 +42,7 @@ class User extends Authenticatable
      */
     public function getFullNameAttribute()
     {
-        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
     }
 
     /**

@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Portal\Auth\LoginController;
 use App\Http\Controllers\Portal\Auth\RegisterController;
-use App\Http\Controllers\Portal\Auth\ForgotPasswordController;
-use App\Http\Controllers\Portal\Auth\ResetPasswordController;
 use App\Http\Controllers\Portal\Auth\VerificationController;
+use App\Http\Controllers\Portal\Auth\ResetPasswordController;
+use App\Http\Controllers\Portal\Auth\ForgotPasswordController;
 
 Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
 
