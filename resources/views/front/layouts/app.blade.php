@@ -16,7 +16,11 @@
     @include('front.layouts.partials.head.favicons')
     @include('front.layouts.partials.head.bugsnag') --}}
 </head>
-<body>
+<body
+    @unless(empty($body_class))
+        class="{{ $body_class }}"
+    @endunless
+>
 
     {{ $slot }}
 
