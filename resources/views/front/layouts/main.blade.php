@@ -3,7 +3,7 @@
 ])
 <div class="bg-gray-100">
 
-@include('front.layouts.partials.topbar')
+    @include('front.layouts.partials.topbar')
 
     <!-- Begin Page Content -->
     {{ $slot }}
