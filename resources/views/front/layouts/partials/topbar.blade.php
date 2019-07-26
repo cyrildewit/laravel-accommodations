@@ -35,12 +35,12 @@
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('secure.dashboard.index') }}">
                         <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                         Mijn overzicht
                     </a>
 
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('secure.bookings.index') }}">
                         <i class="fas fa-atlas fa-sm fa-fw mr-2 text-gray-400"></i>
                         Reserveringen
                     </a>
