@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Domain\User\Models\User;
+use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,17 +13,19 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $john = User::create([
-            'name'              => 'John Doe',
-            'email'             => 'johndoe@example.com',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'email' => 'johndoe@example.com',
             'email_verified_at' => now(),
-            'password'          => bcrypt('pass'),
+            'password' => bcrypt('pass'),
         ]);
 
         $jade = User::create([
-            'name'              => 'Jade Smith',
-            'email'             => 'jadesmith@example.com',
+            'first_name' => 'Jade',
+            'last_name' => 'Smith',
+            'email' => 'jadesmith@example.com',
             'email_verified_at' => now(),
-            'password'          => bcrypt('pass'),
+            'password' => bcrypt('pass'),
         ]);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use Domain\User\Models\User;
+use Domain\Owner\Models\Owner;
+use Domain\Employee\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 
 function current_user(): ?User

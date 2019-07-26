@@ -4,12 +4,16 @@ namespace Domain\Listing\Models;
 
 use Domain\Room\Models\Room;
 use Domain\User\Models\User;
-use Illuminate\Database\Eloquent\Model;
+use BenSampo\Enum\Traits\CastsEnums;
 use Domain\Location\Models\Location;
+use Domain\Listing\Enums\ListingType;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Listing extends Model
 {
+    use CastsEnums;
+
     /**
      * The table associated with the model.
      *
@@ -31,6 +35,15 @@ class Listing extends Model
      */
     protected $casts = [
         // 'meta' => 'array',
+    ];
+
+    /**
+     * The attributes that should be casted to an enum instance.
+     *
+     * @var array
+     */
+    protected $enumCasts = [
+        'type' => ListingType::class,
     ];
 
     /**
