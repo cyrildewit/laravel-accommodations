@@ -66,5 +66,11 @@ class ListingsTableSeeder extends Seeder
             'description' => 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
             'type'        => ListingType::Hotel,
         ]);
+
+        $listing->location()->save(new Location([
+            'lat'               => '47.72051',
+            'lng'               => '22.24166',
+            'formatted_address' => '450 West 31st Street, New York, NY 10001, United States of America',
+        ]));
     }
 }
