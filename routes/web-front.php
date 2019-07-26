@@ -11,5 +11,5 @@ use App\Http\Controllers\Front\SearchController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/search', [SearchController::class, 'index'])->name('search.index');
-Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listing.show');
+Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');
 // Route::get('/{listingType}/{areaSlug}/{listingSlug}/{id}', [ListingController::class, 'show'])->name('listing.show');
