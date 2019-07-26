@@ -19,10 +19,10 @@ Route::middleware('auth:secure')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Booking
-    Route::get('/bookings', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
     // Settings
-    Route::get('/settings', [SettingController::class, 'index'])->name('setting.index');
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
 });
 
 Route::namespace('Auth')->name('auth.')->group(function () {
