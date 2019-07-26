@@ -12,11 +12,11 @@
                         <label class="sr-only" for="inlineFormInputName2">Bestemming</label>
                         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Plaats">
 
-                        <label class="sr-only" for="inlineFormInputName2">Inchecken</label>
+                        {{-- <label class="sr-only" for="inlineFormInputName2">Inchecken</label>
                         <input type="date" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2">
 
                         <label class="sr-only" for="inlineFormInputName2">Uitchecken</label>
-                        <input type="date" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2">
+                        <input type="date" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"> --}}
 
                         <button type="submit" class="btn btn-primary mb-2">Zoeken</button>
                     </form>
@@ -53,9 +53,9 @@
 
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><span class="badge badge-secondary">{{ $listing->type->description }}</span> {{ $listing->name }}</h5>
+                            <h5 class="card-title"><a href="{{ route('front.listings.show', $listing->getKey()) }}"><span class="badge badge-primary">{{ $listing->type->description }}</span> {{ $listing->name }}</a></h5>
                             <p class="card-text small">{{ $listing->description }}</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text"><small class="text-muted">{{ $listing->location->formatted_address }}</small></p>
                         </div>
                     </div>
                 </div>
