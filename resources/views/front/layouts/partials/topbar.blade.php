@@ -13,7 +13,14 @@
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
-            {{-- <div class="topbar-divider d-none d-sm-block"></div> --}}
+            <!-- Nav Item - List your property -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('secure.auth.register') }}">
+                    <span class="d-none d-lg-inline text-gray-600">Registreer uw accommodatie</span>
+                </a>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
 
             @guest('secure')
             <!-- Nav Item - Login -->
