@@ -24,7 +24,7 @@ Route::middleware('auth:secure')->group(function () {
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
 });
 
-Route::namespace('Auth')->name('auth.')->group(function () {
+Route::name('auth.')->group(function () {
 
     // Authentication routes
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');

@@ -6,7 +6,7 @@ use App\Http\Controllers\Portal\Auth\VerificationController;
 use App\Http\Controllers\Portal\Auth\ResetPasswordController;
 use App\Http\Controllers\Portal\Auth\ForgotPasswordController;
 
-Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
+Route::middleware('auth:portal')->group(function () {
 
     // Redirect index to dashboard
     Route::redirect('/', '/dashboard');
@@ -15,7 +15,7 @@ Route::middleware('auth:portal', 'can:browse_portal')->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard.index');
 });
 
-Route::namespace('Auth')->name('auth.')->group(function () {
+Route::name('auth.')->group(function () {
 
     // Authentication routes
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');

@@ -6,7 +6,7 @@ use App\Http\Controllers\Management\Auth\VerificationController;
 use App\Http\Controllers\Management\Auth\ResetPasswordController;
 use App\Http\Controllers\Management\Auth\ForgotPasswordController;
 
-Route::middleware('auth:management', 'can:browse_management')->group(function () {
+Route::middleware('auth:management')->group(function () {
 
     // Redirect index to dashboard
     Route::redirect('/', '/dashboard');
@@ -42,7 +42,7 @@ Route::middleware('auth:management', 'can:browse_management')->group(function ()
     Route::delete('/users/{user}', 'UserController@destroy')->name('user.destroy');
 });
 
-Route::namespace('Auth')->name('auth.')->group(function () {
+Route::name('auth.')->group(function () {
 
     // Authentication routes
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
