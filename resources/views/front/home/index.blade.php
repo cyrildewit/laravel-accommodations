@@ -1,37 +1,56 @@
 @component('front.layouts.main', [
     // 'meta' => $meta,
 ])
-<div class="container">
-
-    <!-- Content Row -->
-    <div class="row">
-
-        <div class="col-lg-8 offset-lg-2 mb-4">
-
-            <!-- Temporary box to make a search to accommodations -->
-            <div class="card shadow mb-4">
-                <div class="card-body p-5">
-
-                    <div class="text-center">
-                        <h1 class="h2 text-gray-900 mb-4">Were are you going!</h1>
+<section class="welcome-area">
+    <div class="welcome-area-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="welcome-area-content text-center">
+                        <h2 class="text-uppercase">Find Your Perfect Trip</h2>
+                        <p>The simplest way to book an accommodation</p>
                     </div>
-
-                    <form action="{{ route('front.search.index') }}" class="user">
-                        <div class="form-group">
-                            <input type="search" class="form-control form-control-user" id="exampleInputEmail" placeholder="Waar gaat u naartoe?">
-                        </div>
-
-                        <button href="login.html" class="btn btn-primary btn-user btn-block">
-                            Zoek
-                        </button>
-                    </form>
-
                 </div>
             </div>
-
         </div>
-
     </div>
+</section>
 
-</div>
+<section class="accommodation-search-form-area">
+    <div class="accommodation-search-form-wrapper">
+        <div class="container">
+            <div class="accommodation-search-form">
+                <form action="{{ route('front.search.index') }}" method="GET">
+                    <div class="row justify-content-between align-items-end">
+                        <div class="col-12 col-md-4">
+                            <label for="destination">Where are you going?</label>
+                            <input type="text" class="form-control" id="destination" name="check_in_date">
+                        </div>
+
+                        <div class="col-12 col-md-2">
+                            <label for="checkInDate">Check In</label>
+                            <input type="date" class="form-control" id="checkInDate">
+                        </div>
+
+                        <div class="col-12 col-md-2">
+                            <label for="checkOutDate">Check Out</label>
+                            <input type="date" class="form-control" id="checkOutDate">
+                        </div>
+
+                        <div class="col-12 col-md-1">
+                            <label for="numOfGuests">Guests</label>
+                            <select name="guests" id="numOfGuests" class="form-control">
+                                <option value="1">1 guest</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <button type="submit" class="form-control btn btn-primary w-100">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 @endcomponent

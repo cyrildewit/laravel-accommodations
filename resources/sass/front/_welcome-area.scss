@@ -1,0 +1,19 @@
+.welcome-area {
+    z-index: 1;
+    min-height: 450px;
+    position: relative;
+    background: url("https://source.unsplash.com/eOcyhe5-9sQ") no-repeat center;
+    background-size: cover;
+}
+
+.welcome-area-inner {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+}
+
+.welcome-area-content {
+    color: white;
+}
