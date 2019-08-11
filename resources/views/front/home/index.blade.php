@@ -17,37 +17,39 @@
 </section>
 
 <section class="accommodation-search-form-area">
-    <div class="container">
-        <div class="accommodation-search-form">
-            <form action="{{ route('front.search.index') }}" method="POST">
-                <div class="row justify-content-between align-items-end">
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label for="destination">Where are you going?</label>
-                        <input type="text" class="form-control" id="destination" name="check_in_date">
-                    </div>
+    <div class="accommodation-search-form-wrapper">
+        <div class="container">
+            <div class="accommodation-search-form">
+                <form action="{{ route('front.search.index') }}" method="GET">
+                    <div class="row justify-content-between align-items-end">
+                        <div class="col-12 col-md-4">
+                            <label for="destination">Where are you going?</label>
+                            <input type="text" class="form-control" id="destination" name="check_in_date">
+                        </div>
 
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label for="checkInDate">Check In</label>
-                        <input type="date" class="form-control" id="checkInDate">
-                    </div>
+                        <div class="col-12 col-md-2">
+                            <label for="checkInDate">Check In</label>
+                            <input type="date" class="form-control" id="checkInDate">
+                        </div>
 
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label for="checkOutDate">Check Out</label>
-                        <input type="date" class="form-control" id="checkOutDate">
-                    </div>
+                        <div class="col-12 col-md-2">
+                            <label for="checkOutDate">Check Out</label>
+                            <input type="date" class="form-control" id="checkOutDate">
+                        </div>
 
-                    <div class="col-4 col-md-1">
-                        <label for="numOfGuests">Guests</label>
-                        <select name="guests" id="numOfGuests" class="form-control">
-                            <option value="1">1 guest</option>
-                        </select>
-                    </div>
+                        <div class="col-12 col-md-1">
+                            <label for="numOfGuests">Guests</label>
+                            <select name="guests" id="numOfGuests" class="form-control">
+                                <option value="1">1 guest</option>
+                            </select>
+                        </div>
 
-                    <div class="col-12 col-md-3">
-                        <button type="submit" class="form-control btn w-100">Search</button>
+                        <div class="col-12 col-md-3">
+                            <button type="submit" class="form-control btn btn-primary w-100">Search</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </section>
