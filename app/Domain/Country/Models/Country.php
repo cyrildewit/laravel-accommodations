@@ -2,7 +2,9 @@
 
 namespace Domain\Country\Models;
 
+use Domain\City\Models\City;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Country extends Model
 {
@@ -19,4 +21,14 @@ class Country extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
+    /**
+     * Get the cities of this country.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cities(): HasMany
+    {
+        return $this->hasMany(City::class);
+    }
 }
