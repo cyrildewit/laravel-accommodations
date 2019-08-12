@@ -14,7 +14,14 @@ class DestinationAutocompleteController extends Controller
         $query = $request->input('query');
 
         return response()->json([
-            'suggestions' => City::where('name', 'like', "%{$query}%")->pluck('name')
+            'suggestions' => City::where('name', 'like', "%{$query}%")->get()->map(function ($item, $key) {
+                return [
+                    'value' => $item->name,
+                    'data' => [
+                        'city_id' => $item->getKey(),
+                    ],
+                ];
+            })
         ]);
     }
 }
