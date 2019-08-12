@@ -1,0 +1,31 @@
+.accommodation-search-form-area {
+    position: relative;
+    z-index: 1;
+}
+
+.accommodation-search-form-wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.accommodation-search-form {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.15);
+    padding: 40px 40px 0 40px;
+    border-radius: 5px;
+    background-color: #ffffff;
+
+    //
+    .form-control {
+        width: 100%;
+        margin-bottom: 40px;
+        height: 50px;
+        border: 1px solid #ebebeb;
+        font-size: 13px;
+    }
+}
