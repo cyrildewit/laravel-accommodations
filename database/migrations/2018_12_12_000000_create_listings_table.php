@@ -15,7 +15,7 @@ class CreateListingsTable extends Migration
     public function up()
     {
         Schema::create('listings', function (Blueprint $table) {
-            $table->increments('id'); // maybe uuid
+            $table->bigIncrements('id'); // maybe uuid
             $table->integer('owner_id')->unsigned();
 
             // $table->string('slug');
