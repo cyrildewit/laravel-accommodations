@@ -1,3 +1,3 @@
-import 'jquery';
-import 'bootstrap';
+import './bootstrap';
 import './sb-admin-2';
+import './pages/home';
