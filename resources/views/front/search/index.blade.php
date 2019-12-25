@@ -10,7 +10,7 @@
 
                     <form class="form-inline">
                         <label class="sr-only" for="inlineFormInputName2">Bestemming</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Plaats">
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="destination" placeholder="Plaats" value="{{ $destinationQuery }}">
 
                         {{-- <label class="sr-only" for="inlineFormInputName2">Inchecken</label>
                         <input type="date" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2">
@@ -62,7 +62,7 @@
             </div>
             @endforeach
 
-            {{ $listings->links() }}
+            {{-- {{ $listings->links() }} --}}
 
         </div>
 

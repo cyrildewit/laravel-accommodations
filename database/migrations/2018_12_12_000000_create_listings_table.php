@@ -17,6 +17,7 @@ class CreateListingsTable extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->bigIncrements('id'); // maybe uuid
             $table->integer('owner_id')->unsigned();
+            $table->integer('city_id')->unsigned()->nullable();
 
             // $table->string('slug');
             // $table->string('slug_id')->unique();
