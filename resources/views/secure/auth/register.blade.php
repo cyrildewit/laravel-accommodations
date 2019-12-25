@@ -33,11 +33,13 @@
                                         </div>
 
                                         @if($errors->has(['first_name', 'last_name']))
-                                            @foreach(Arr:wrap($errors->get('first_name'), $errors->get('last_name')) as $message)
-                                                <div class="invalid-feedback">
+                                            <div class="col-sm-12">
+                                            @foreach(collect([$errors->get('first_name'), $errors->get('last_name')]) as $message)
+                                                <div class="invalid-feedback d-block">
                                                     {{ $message }}
                                                 </div>
                                             @endforeach
+                                            </div>
                                         @endif
                                     </div>
 

@@ -24,7 +24,7 @@
                     <div class="row justify-content-between align-items-end">
                         <div class="col-12 col-md-4">
                             <label for="destination">Where are you going?</label>
-                            <input type="text" class="form-control" id="destination" name="check_in_date">
+                            <input type="text" name="destination" class="form-control" id="destination">
                         </div>
 
                         <div class="col-12 col-md-2">
@@ -40,6 +40,7 @@
                         <div class="col-12 col-md-1">
                             <label for="numOfGuests">Guests</label>
                             <select name="guests" id="numOfGuests" class="form-control">
+                                <option value="">Choose</option>
                                 <option value="1">1 guest</option>
                             </select>
                         </div>
@@ -53,4 +54,11 @@
         </div>
     </div>
 </section>
+
+<style>
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
+</style>
 @endcomponent

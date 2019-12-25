@@ -26,6 +26,7 @@ class ListingsTableSeeder extends Seeder
         $jamy = Owner::where('email', 'jamyjohnson@example.com')->first();
         $listing = Listing::create([
             'owner_id'    => $jamy->id,
+            'city_id' => 1,
             'name'        => 'B&B De Monnick',
             'description' => 'De Monnick ligt in Monnickendam en biedt accommodatie met een terras en gratis WiFi. Deze bed & breakfast beschikt over een tuin. De bed & breakfast is voorzien van een flatscreen-tv met satellietzenders. Er wordt elke ochtend een continentaal ontbijt geserveerd.',
             'type'        => ListingType::BedAndBreakfast,
